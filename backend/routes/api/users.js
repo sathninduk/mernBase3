@@ -312,7 +312,6 @@ router.get("/accept-verification", cors(corsOptions), (req, res) => {
     });
 });
 
-// @route POST api/users/login
 // @desc Login user and return JWT token
 // @access Public
 router.post("/login", cors(corsOptions), (req, res) => {
