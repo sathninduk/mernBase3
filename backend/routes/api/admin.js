@@ -153,7 +153,7 @@ router.route('/users/disable').post(cors(corsOptions), auth.isAuthenticated, (re
                     to: email,
                     subject: 'Account disabling notification - MernBase',
                     html:
-                        escape('<div style="' +
+                        '<div style="' +
                         'background-color: #f3f4fa;' +
                         'width: 95%;' +
                         'display: flex;' +
@@ -176,7 +176,7 @@ router.route('/users/disable').post(cors(corsOptions), auth.isAuthenticated, (re
                         '<p style="color: rgba(0,0,0,0.5); font-size: 11px;">©' + new Date().getFullYear() + ' MernBase | Powered by <a href="https://www.coduza.com">CODUZA</a></p>' +
                         '</div>' +
                         '</div>' +
-                        '</div>')
+                        '</div>'
                 };
 
                 transporter.sendMail(mailOptions, (error, info) => {
@@ -243,7 +243,7 @@ router.route('/users/enable').post(cors(corsOptions), auth.isAuthenticated, (req
                         to: email,
                         subject: 'Account enabling notification - MernBase',
                         html:
-                            escape('<div style="' +
+                            '<div style="' +
                             'background-color: #f3f4fa;' +
                             'width: 95%;' +
                             'display: flex;' +
@@ -266,7 +266,7 @@ router.route('/users/enable').post(cors(corsOptions), auth.isAuthenticated, (req
                             '<p style="color: rgba(0,0,0,0.5); font-size: 11px;">©' + new Date().getFullYear() + ' MernBase | Powered by <a href="https://www.coduza.com">CODUZA</a></p>' +
                             '</div>' +
                             '</div>' +
-                            '</div>')
+                            '</div>'
                     };
 
                     transporter.sendMail(mailOptions, (error, info) => {
@@ -332,7 +332,7 @@ router.route('/users/delete').post(cors(corsOptions), auth.isAuthenticated, (req
                                 to: email,
                                 subject: 'Account removal notification - MernBase',
                                 html:
-                                    escape('<div style="' +
+                                    '<div style="' +
                                     'background-color: #f3f4fa;' +
                                     'width: 95%;' +
                                     'display: flex;' +
@@ -355,7 +355,7 @@ router.route('/users/delete').post(cors(corsOptions), auth.isAuthenticated, (req
                                     '<p style="color: rgba(0,0,0,0.5); font-size: 11px;">©' + new Date().getFullYear() + ' MernBase | Powered by <a href="https://www.coduza.com">CODUZA</a></p>' +
                                     '</div>' +
                                     '</div>' +
-                                    '</div>')
+                                    '</div>'
                             };
 
                             transporter.sendMail(mailOptions, (error, info) => {

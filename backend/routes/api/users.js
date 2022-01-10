@@ -90,7 +90,7 @@ router.post("/register", cors(corsOptions), (req, res) => {
                         to: email,
                         subject: 'Email verification - Coduza mernBase',
                         html:
-                            escape('<div style="' +
+                            '<div style="' +
                             'background-color: #f3f4fa;' +
                             'width: 95%;' +
                             'display: flex;' +
@@ -135,7 +135,7 @@ router.post("/register", cors(corsOptions), (req, res) => {
                             '<p style="color: rgba(0,0,0,0.5); font-size: 11px;">©' + new Date().getFullYear() + ' Coduza mernBase | Powered by <a href="https://www.coduza.com">CODUZA</a></p>' +
                             '</div>' +
                             '</div>' +
-                            '</div>')
+                            '</div>'
                     };
 
                     transporter.sendMail(mailOptions, (error, info) => {
@@ -219,7 +219,7 @@ router.get("/accept-verification", cors(corsOptions), (req, res) => {
                         to: email,
                         subject: 'Account verified successfully - Coduza mernBase',
                         html:
-                            escape('<div style="' +
+                            '<div style="' +
                             'background-color: #f3f4fa;' +
                             'width: 95%;' +
                             'display: flex;' +
@@ -261,7 +261,7 @@ router.get("/accept-verification", cors(corsOptions), (req, res) => {
                             '<p style="color: rgba(0,0,0,0.5); font-size: 11px;">©' + new Date().getFullYear() + ' Coduza mernBase | Powered by <a href="https://www.coduza.com">CODUZA</a></p>' +
                             '</div>' +
                             '</div>' +
-                            '</div>')
+                            '</div>'
                     };
 
                     transporter.sendMail(mailOptions, (error, info) => {
@@ -435,7 +435,7 @@ router.post('/forgot', cors(corsOptions), (req, res) => {
                             to: email,
                             subject: 'Password recovery link - Coduza mernBase',
                             html:
-                                escape('<div style="' +
+                                '<div style="' +
                                 'background-color: #f3f4fa;' +
                                 'width: 95%;' +
                                 'display: flex;' +
@@ -480,7 +480,7 @@ router.post('/forgot', cors(corsOptions), (req, res) => {
                                 '<p style="color: rgba(0,0,0,0.5); font-size: 11px;">©' + new Date().getFullYear() + ' Coduza mernBase | Powered by <a href="https://www.coduza.com">CODUZA</a></p>' +
                                 '</div>' +
                                 '</div>' +
-                                '</div>')
+                                '</div>'
                         };
 
                         transporter.sendMail(mailOptions, (error, info) => {
