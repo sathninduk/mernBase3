@@ -11,7 +11,8 @@
     "start": "node server.js",
     "server": "node server.js",
     "client": "npm start --prefix client",
-    "dev": "npm run server"
+    "dev": "npm run server",
+    "test": "snyk test"
   },
   "author": "",
   "license": "MIT",
@@ -35,5 +36,8 @@
     "passport-jwt": "^4.0.0",
     "uuid": "^8.3.2",
     "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "snyk": "^1.821.0"
   }
 }
