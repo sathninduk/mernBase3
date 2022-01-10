@@ -121,7 +121,6 @@ router.post("/register", cors(corsOptions), (req, res) => {
                             'text-decoration: none;' +
                             '" ' +
                             'href="' + keys.PW_URL + 'verify-email/' + randId + '"' +
-                            //'data-saferedirecturl="https://www.google.com/url?q=' + keys.PW_URL + 'forgot-change-password?id=' + randId + '"' +
                             '>' +
                             '' + '<b>Verify</b>' + '' +
                             '</a>' +
@@ -233,7 +232,7 @@ router.get("/accept-verification", cors(corsOptions), (req, res) => {
                             '<div style="width: 100%; min-height: 400px;">' +
                             '<img src="https://ipfs.io/ipfs/QmRdRKtXDUJsb1qw9HxHBrvzu7s3QCB8KWqAnv9ULhS6m5" style="width: 200px" alt="Votechno Logo">' +
                             '<div>' +
-                            '<h2>Hello, ' + user65.name + '</h2>' +
+                            '<h2>Hello, ' + escape(user65.name) + '</h2>' +
                             '<h1>' +
                             'Welcome to the <b>Coduza mernBase</b>' +
                             '</h1>' +
