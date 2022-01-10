@@ -27,7 +27,7 @@
     "express-rate-limit": "^5.5.1",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.3.0",
-    "mongoose": "^5.13.13",
+    "mongoose": "^5.3.11",
     "multer": "^1.4.3",
     "nodemailer": "^6.7.0",
     "nodemon": "^2.0.14",
