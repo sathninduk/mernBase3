@@ -23,6 +23,7 @@ const limiter = new RateLimit({
 const auth = require('./middleware/check-auth');
 
 const app = express();
+app.disable('x-powered-by');
 
 // Bodyparser middleware
 app.use(

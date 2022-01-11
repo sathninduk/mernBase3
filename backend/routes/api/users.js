@@ -3,7 +3,6 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const keys = require("../../config/keys");
 const jwt = require("jsonwebtoken");
-const passport = require("passport");
 const nodemailer = require("nodemailer");
 const cors = require('cors');
 
