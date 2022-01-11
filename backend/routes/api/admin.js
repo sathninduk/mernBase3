@@ -332,8 +332,7 @@ router.route('/users/delete').post(cors(corsOptions), auth.isAuthenticated, (req
                                 from: keys.MAIL_ACC,
                                 to: email,
                                 subject: 'Account removal notification - MernBase',
-                                html:
-                                    sanitizer.sanitize('<div style="' +
+                                html: sanitizer.sanitize('<div style="' +
                                     'background-color: #f3f4fa;' +
                                     'width: 95%;' +
                                     'display: flex;' +
