@@ -333,7 +333,7 @@ router.route('/users/delete').post(cors(corsOptions), auth.isAuthenticated, (req
                                 to: email,
                                 subject: 'Account removal notification - MernBase',
                                 html:
-                                    '<div style="' +
+                                    sanitizer.sanitize('<div style="' +
                                     'background-color: #f3f4fa;' +
                                     'width: 95%;' +
                                     'display: flex;' +
@@ -347,7 +347,7 @@ router.route('/users/delete').post(cors(corsOptions), auth.isAuthenticated, (req
                                     '<div style="width: 100%; min-height: 400px;">' +
                                     '<img src="https://ipfs.io/ipfs/QmTLgXxswcZM5LrscWJwfKJ4LEwojMHxfymV8qdA6p5wSm" style="width: 200px" alt="MernBase Logo">' +
                                     '<div>' +
-                                    '<h2>Hello, ' + sanitizer.sanitize(data2.name) + '</h2>' +
+                                    '<h2>Hello, ' + data2.name + '</h2>' +
                                     '<h1>' +
                                     'Your MernBase account has been permanently deleted' +
                                     '</h1>' +
@@ -356,7 +356,7 @@ router.route('/users/delete').post(cors(corsOptions), auth.isAuthenticated, (req
                                     '<p style="color: rgba(0,0,0,0.5); font-size: 11px;">©' + new Date().getFullYear() + ' MernBase | Powered by <a href="https://www.coduza.com">CODUZA</a></p>' +
                                     '</div>' +
                                     '</div>' +
-                                    '</div>'
+                                    '</div>')
                             };
 
                             transporter.sendMail(mailOptions, (error, info) => {
