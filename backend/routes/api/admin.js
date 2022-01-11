@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const sanitizer = require('sanitizer');
 
 // Load User model
 const User = require("../../models/User");
@@ -167,7 +168,7 @@ router.route('/users/disable').post(cors(corsOptions), auth.isAuthenticated, (re
                         '<div style="width: 100%; min-height: 400px;">' +
                         '<img src="https://ipfs.io/ipfs/QmTLgXxswcZM5LrscWJwfKJ4LEwojMHxfymV8qdA6p5wSm" style="width: 200px" alt="MernBase Logo">' +
                         '<div>' +
-                        '<h2>Hello, ' + String(user.name) + '</h2>' +
+                        '<h2>Hello, ' + sanitizer.sanitize(user.name) + '</h2>' +
                         '<h1>' +
                         'Your MernBase account has been temporarily disabled' +
                         '</h1>' +
@@ -257,7 +258,7 @@ router.route('/users/enable').post(cors(corsOptions), auth.isAuthenticated, (req
                             '<div style="width: 100%; min-height: 400px;">' +
                             '<img src="https://ipfs.io/ipfs/QmTLgXxswcZM5LrscWJwfKJ4LEwojMHxfymV8qdA6p5wSm" style="width: 200px" alt="MernBase Logo">' +
                             '<div>' +
-                            '<h2>Hello, ' + String(data2.name) + '</h2>' +
+                            '<h2>Hello, ' + sanitizer.sanitize(data2.name) + '</h2>' +
                             '<h1>' +
                             'Your MernBase account has been reactivated' +
                             '</h1>' +
@@ -346,7 +347,7 @@ router.route('/users/delete').post(cors(corsOptions), auth.isAuthenticated, (req
                                     '<div style="width: 100%; min-height: 400px;">' +
                                     '<img src="https://ipfs.io/ipfs/QmTLgXxswcZM5LrscWJwfKJ4LEwojMHxfymV8qdA6p5wSm" style="width: 200px" alt="MernBase Logo">' +
                                     '<div>' +
-                                    '<h2>Hello, ' + String(data2.name) + '</h2>' +
+                                    '<h2>Hello, ' + sanitizer.sanitize(data2.name) + '</h2>' +
                                     '<h1>' +
                                     'Your MernBase account has been permanently deleted' +
                                     '</h1>' +
