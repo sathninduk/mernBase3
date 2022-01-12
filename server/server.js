@@ -1,7 +1,5 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const cookieParser = require('cookie-parser');
-const csrf = require('csurf');
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const cors = require('cors');
@@ -10,11 +8,7 @@ const users = require("./routes/api/users");
 const admin = require("./routes/api/admin");
 const u = require("./routes/api/u")
 const instructor = require("./routes/api/instructor")
-//const path = require("path");
-
-// setup route middlewares
-const csrfProtection = csrf({ cookie: true })
-const parseForm = bodyParser.urlencoded({ extended: false })
+const path = require("path");
 
 // set up rate limiter: maximum of five requests per minute
 const RateLimit = require('express-rate-limit');
@@ -30,8 +24,6 @@ const auth = require('./middleware/check-auth');
 
 const app = express();
 
-app.use(cookieParser())
-
 const helmet = require('helmet')
 app.use(helmet())
 //app.disable('x-powered-by');
@@ -39,8 +31,6 @@ app.use(helmet())
 // Bodyparser middleware
 app.use(
     limiter,
-    parseForm,
-    csrfProtection,
     bodyParser.urlencoded({
         extended: false
     })

@@ -73,9 +73,7 @@ export const resetPassword = (resetData, history) => dispatch => {
 // Login - get user token
 export const loginUser = userData => dispatch => {
     axios
-        .post(baseURL + '/api/users/login', userData, {
-            //'CSRF-Token': csrfTokenVal
-        })
+        .post(baseURL + '/api/users/login', userData)
         .then(res => {
             // Set token to localStorage
             const {token} = res.data;
@@ -104,7 +102,7 @@ export const forgotPassword = userData => dispatch => {
             console.log(requestSent);
             // dispatch(forgotLinkSent(requestSentData));
         })*/
-        .then(res => window.location.href = "/forgot-success")
+        .then(res => window.location.href ="/forgot-success")
         .catch(err =>
             dispatch({
                 type: GET_ERRORS,

@@ -230,14 +230,4 @@ router.route('/security/check-point').get(cors(corsOptions), auth.isAuthenticate
     })
 })
 
-// User check point
-router.route('/security/csrf').get(cors(corsOptions), (req, res) => {
-    let csrftoken = req.csrfToken();
-        if (csrftoken) {
-                res.status(200).json(csrftoken)
-        } else {
-            res.status(401);
-        }
-})
-
 module.exports = router;
