@@ -19,7 +19,17 @@ let id = pathname.split('/').pop();
 // id2
 let id2 = pathname.split('/')[path_length - 2];
 
+/*async function getCSRFToken() {
+    const response = await axios.get('/api/u/security/csrf');
+    axios.defaults.headers.post['X-CSRF-Token'] = response.data.CSRFToken;
+}*/
+
+
 class Navbar extends Component {
+
+    /*useEffect = async () => {
+        await getCSRFToken()
+    }*/
 
     state = {
         verification: true,
@@ -48,7 +58,9 @@ class Navbar extends Component {
 
     };
 
+
     componentDidMount = () => {
+
         if (id === ''
             || id === 'login'
             || id === 'register'
@@ -215,7 +227,12 @@ class Navbar extends Component {
                                     }
                                     {user.name ?
                                         <li className="nav-item dropdown simple-dropdown user-nav-li">
-                                            <button style={{maxHeight: "20px", backgroundColor: "transparent", outline: "none", border: "none"}} title={"Logout"} className="nav-link"
+                                            <button style={{
+                                                maxHeight: "20px",
+                                                backgroundColor: "transparent",
+                                                outline: "none",
+                                                border: "none"
+                                            }} title={"Logout"} className="nav-link"
                                                     onClick={this.onLogoutClick}>
 
                                                 {this.state.logoutLoading === true ?
@@ -243,8 +260,6 @@ class Navbar extends Component {
                                             </a>
                                         </li>
                                     }
-
-
                                 </ul>
                             </div>
                         </div>

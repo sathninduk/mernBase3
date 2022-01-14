@@ -305,7 +305,6 @@ router.get("/accept-verification", cors(corsOptions), (req, res) => {
                     .status(404)
                     .json({errorsendingemail: "Error"});
             })
-
         }
     });
 });
@@ -313,10 +312,6 @@ router.get("/accept-verification", cors(corsOptions), (req, res) => {
 // @desc Login user and return JWT token
 // @access Public
 router.post("/login", cors(corsOptions), (req, res) => {
-    // Form validation
-
-    const {errors, isValid} = validateLoginInput(req.body);
-
     // Check validation
     if (!isValid) {
         return res.status(400).json(errors);

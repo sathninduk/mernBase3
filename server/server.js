@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const cookieParser = require('cookie-parser');
 const passport = require("passport");
 const cors = require('cors');
 
@@ -13,7 +14,7 @@ const path = require("path");
 // set up rate limiter: maximum of five requests per minute
 const RateLimit = require('express-rate-limit');
 const limiter = new RateLimit({
-    windowMs: 5*60*1000, // 5 minutes
+    windowMs: 5 * 60 * 1000, // 5 minutes
     max: 100,
     message:
         "Rate limit exceeded"
@@ -23,19 +24,18 @@ const limiter = new RateLimit({
 const auth = require('./middleware/check-auth');
 
 const app = express();
+const helmet = require('helmet');
 
-const helmet = require('helmet')
-app.use(helmet())
-//app.disable('x-powered-by');
-
-// Bodyparser middleware
+// security and parser middlewares
 app.use(
     limiter,
+    cookieParser(),
+    helmet(),
     bodyParser.urlencoded({
         extended: false
-    })
+    }),
+    bodyParser.json()
 );
-app.use(bodyParser.json());
 
 // DB Config
 const db = require("./config/keys").mongoURI;
@@ -61,7 +61,6 @@ app.use('/public', express.static(__dirname + '/public'));
 
 // Passport config
 require("./config/passport")(passport);
-
 
 // Routes
 app.use("/api/users", users);
