@@ -3,13 +3,14 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
 const passport = require("passport");
+const csrf = require('csurf');
 const cors = require('cors');
 
 const users = require("./routes/api/users");
 const admin = require("./routes/api/admin");
 const u = require("./routes/api/u")
 const instructor = require("./routes/api/instructor")
-const path = require("path");
+//const path = require("path");
 
 // set up rate limiter: maximum of five requests per minute
 const RateLimit = require('express-rate-limit');
@@ -23,6 +24,9 @@ const limiter = new RateLimit({
 // middleware
 const auth = require('./middleware/check-auth');
 
+// csrf middleware
+const csrfProtection = csrf({ cookie: true })
+
 const app = express();
 const helmet = require('helmet');
 
@@ -30,6 +34,7 @@ const helmet = require('helmet');
 app.use(
     limiter,
     cookieParser(),
+    csrfProtection,
     helmet(),
     bodyParser.urlencoded({
         extended: false
@@ -39,7 +44,6 @@ app.use(
 
 // DB Config
 const db = require("./config/keys").mongoURI;
-//const db = "mongodb+srv://coduza:xsi0xKjtMEs3O19Q@cluster0.bujlo.mongodb.net/votechno?retryWrites=true&w=majority";
 
 // Connect to MongoDB
 mongoose

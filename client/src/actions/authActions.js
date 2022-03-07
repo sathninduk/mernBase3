@@ -10,8 +10,18 @@ const baseURL = require("../config/keys").API_URL;
 // Login - get user token
 export const loginUser = userData => async dispatch => {
 
+    let response = await axios.get(baseURL + '/api/u/security/csrf');
+    let csrfToken = response.data;
+    console.log(csrfToken);
+
     axios
-        .post(baseURL + '/api/users/login', userData, {})
+        .post(baseURL + '/api/users/login', userData, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Headers': 'xsrf-token',
+                'xsrf-token': csrfToken
+            }
+        })
         .then(res => {
             // Set token to localStorage
             const {token} = res.data;

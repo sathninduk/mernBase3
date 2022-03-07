@@ -230,4 +230,8 @@ router.route('/security/check-point').get(cors(corsOptions), auth.isAuthenticate
     })
 })
 
+router.route('/security/csrf').get(cors(corsOptions), (req, res) => {
+    res.send(req.csrfToken());
+})
+
 module.exports = router;
