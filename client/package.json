@@ -11,7 +11,7 @@
     "@mui/styles": "^5.0.1",
     "@mui/x-data-grid": "^5.12.1",
     "@mui/x-data-grid-generator": "^4.0.1",
-    "axios": "^0.21.4",
+    "axios": "^0.27.2",
     "classnames": "^2.2.6",
     "cors": "^2.8.5",
     "datatables.net": "^1.11.3",
