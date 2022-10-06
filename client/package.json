@@ -48,6 +48,6 @@
   ],
   "devDependencies": {
     "prop-types": "^15.7.2",
-    "snyk": "^1.821.0"
+    "snyk": "^1.996.0"
   }
 }
