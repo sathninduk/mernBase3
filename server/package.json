@@ -42,6 +42,6 @@
     "validator": "^13.7.0"
   },
   "devDependencies": {
-    "snyk": "^1.821.0"
+    "snyk": "^1.996.0"
   }
 }
